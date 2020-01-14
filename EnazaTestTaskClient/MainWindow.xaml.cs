@@ -27,7 +27,7 @@ namespace EnazaTestTaskClient
         public MainWindow()
         {
             InitializeComponent();
-
+            
             messageService = new MessageService("http://localhost:52175");
 
             messageService.OnMessage((message) =>
