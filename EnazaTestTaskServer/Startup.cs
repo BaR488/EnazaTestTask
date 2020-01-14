@@ -30,7 +30,7 @@ namespace EnazaTestTaskServer
         {
             services.AddControllers();
             services.AddSignalR();
-            services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<IFileService>(new FileService("messages.txt"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

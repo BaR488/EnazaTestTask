@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnazaTestTaskServer", "EnazaTestTaskServer\EnazaTestTaskServer.csproj", "{7AA13B8F-52E9-4E05-ACD8-1E59644B4DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnazaTestTaskServer", "EnazaTestTaskServer\EnazaTestTaskServer.csproj", "{7AA13B8F-52E9-4E05-ACD8-1E59644B4DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnazaTestTaskClient", "EnazaTestTaskClient\EnazaTestTaskClient.csproj", "{B9169D72-F531-4AEF-B5CB-84F41BD2BB92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnazaTestTaskClient", "EnazaTestTaskClient\EnazaTestTaskClient.csproj", "{B9169D72-F531-4AEF-B5CB-84F41BD2BB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnazaTestTaskNUnitTests", "EnazaTestTaskNUnitTests\EnazaTestTaskNUnitTests.csproj", "{A0B545EE-475A-4D92-B303-3801189B77C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B9169D72-F531-4AEF-B5CB-84F41BD2BB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9169D72-F531-4AEF-B5CB-84F41BD2BB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9169D72-F531-4AEF-B5CB-84F41BD2BB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B545EE-475A-4D92-B303-3801189B77C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B545EE-475A-4D92-B303-3801189B77C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B545EE-475A-4D92-B303-3801189B77C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B545EE-475A-4D92-B303-3801189B77C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

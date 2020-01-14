@@ -19,9 +19,9 @@ namespace EnazaTestTaskServer.Controllers
         }
 
         [HttpGet]
-        public async Task<string> GetStore()
+        public string GetStore()
         {
-            return await _fileService.GetStoredMessageAsync() ?? String.Empty;
+            return _fileService.GetStoredMessage() ?? String.Empty;
         }
     }
 }

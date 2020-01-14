@@ -7,8 +7,8 @@ namespace EnazaTestTaskServer
 {
     public interface IFileService
     {
-        public void StoreNewMessageAsync(string message);
+        public void StoreNewMessage(string message);
 
-        public Task<string> GetStoredMessageAsync();
+        public string GetStoredMessage();
     }
 }

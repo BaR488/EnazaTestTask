@@ -22,7 +22,7 @@ namespace EnazaTestTaskServer
         {
             try
             {
-                _fileService.StoreNewMessageAsync(message);
+                _fileService.StoreNewMessage(message);
 
                 await Clients.Others.SendAsync("ReceiveMessage", message);
             } catch (Exception ex)

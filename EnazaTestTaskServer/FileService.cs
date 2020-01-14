@@ -11,7 +11,7 @@ namespace EnazaTestTaskServer
 {
     public class FileService : IFileService
     {
-        private const string FilePath = "messages.txt";
+        private string _filePath;
 
         private ReaderWriterLockSlim lockStore = new ReaderWriterLockSlim();
 
@@ -19,11 +19,16 @@ namespace EnazaTestTaskServer
 
         private readonly SortedList<string, List<int>> _messagesList = new SortedList<string, List<int>>();
 
+        public FileService(string filePath): base()
+        {
+            _filePath = filePath;
+        }
+
         public FileService() : base()
         {
-            if (File.Exists(FilePath))
+            if (File.Exists(_filePath))
             {
-                using (StreamReader sr = new StreamReader(FilePath, _DefaultEncoding))
+                using (StreamReader sr = new StreamReader(_filePath, _DefaultEncoding))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -32,7 +37,6 @@ namespace EnazaTestTaskServer
                     }
                 }
             }
-
         }
 
         private void AppendToList(string message, byte[] messageBytes)
@@ -46,8 +50,8 @@ namespace EnazaTestTaskServer
                 _messagesList.Add(message, new List<int> {messageBytes.Length});
             }
         }
-
-        public async void StoreNewMessageAsync(string message)
+        
+        public void StoreNewMessage(string message)
         {
             var messageBytes = _DefaultEncoding.GetBytes($"{message}{System.Environment.NewLine}");
 
@@ -57,7 +61,7 @@ namespace EnazaTestTaskServer
             {
                 AppendToList(message, messageBytes);
 
-                using (FileStream fstream = new FileStream(FilePath, FileMode.OpenOrCreate))
+                using (FileStream fstream = new FileStream(_filePath, FileMode.OpenOrCreate))
                 {
                     if (fstream.Length != 0)
                     {
@@ -88,18 +92,17 @@ namespace EnazaTestTaskServer
             }
         }
 
-        public async Task<string> GetStoredMessageAsync()
+        public string GetStoredMessage()
         {
             lockStore.EnterReadLock();
             try
             {
-                return File.Exists(FilePath) ? await File.ReadAllTextAsync(FilePath) : null;
+                return File.Exists(_filePath) ? File.ReadAllText(_filePath) : null;
             }
             finally
             {
                 lockStore.ExitReadLock();
             }
-            
         }
     }
 }
